@@ -1,7 +1,4 @@
 import random
-
-
-
 class BankAccount:
     def __init__(self, account_holder, balance):
         self.account_number = self.generate_account_number()
@@ -101,3 +98,4 @@ if __name__ == "__main__":
             break
         else:
             print("Invalid choice.")
+
