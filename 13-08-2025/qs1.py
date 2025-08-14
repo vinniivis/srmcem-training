@@ -11,19 +11,19 @@ class BankAccount:
     def deposit(self, amount):
         if amount > 0:
             self.balance += amount
-            print(f"Deposited {amount}. New balance: {self.balance}")
+            print(f"Deposited ₹{amount}. New balance: ₹{self.balance}")
         else:
             print("Deposit amount must be positive.")
 
     def withdraw(self, amount):
         if amount > 0 and self.balance >= amount:
             self.balance -= amount
-            print(f"Withdrew {amount}. New balance: {self.balance}")
+            print(f"Withdrew ₹{amount}. New balance: ₹{self.balance}")
         else:
             print("Insufficient funds or invalid amount.")
 
     def display_balance(self):
-        print(f"Account Balance: {self.balance}")
+        print(f"Account Balance: ₹{self.balance}")
 
 class SavingAccount(BankAccount):
     interest_rate = 4  
@@ -31,7 +31,7 @@ class SavingAccount(BankAccount):
     def apply_interest(self):
         interest = (self.balance * self.interest_rate) / 100
         self.balance += interest
-        print(f"Interest of {interest} applied. New balance: {self.balance}")
+        print(f"Interest of {interest} applied. New balance: ₹{self.balance}")
 
 
 
@@ -41,7 +41,7 @@ class CurrentAccount(BankAccount):
     def withdraw(self, amount):
         if amount > 0 and (self.balance - amount) >= -self.overdraft_limit:
             self.balance -= amount
-            print(f"Withdrew {amount}. New balance: {self.balance}")
+            print(f"Withdrew ₹{amount}. New balance: ₹{self.balance}")
         else:
             print("Overdraft limit exceeded or invalid amount.")
 
@@ -50,7 +50,7 @@ class CurrentAccount(BankAccount):
 if __name__ == "__main__":
     acc_type = input("Enter account type (saving/current): ").strip().lower()
     name = input("Enter account holder name: ")
-    balance = float(input("Enter initial balance: "))
+    balance = float(input("Enter initial balance: ₹"))
 
     if acc_type == "saving":
         account = SavingAccount(name, balance)
@@ -79,11 +79,11 @@ if __name__ == "__main__":
         choice = input("Enter choice: ")
 
         if choice == "1":
-            amt = float(input("Enter amount to deposit: "))
+            amt = float(input("Enter amount to deposit: ₹"))
             account.deposit(amt)
 
         elif choice == "2":
-            amt = float(input("Enter amount to withdraw: "))
+            amt = float(input("Enter amount to withdraw: ₹"))
             account.withdraw(amt)
 
         elif choice == "3":
@@ -97,5 +97,6 @@ if __name__ == "__main__":
             break
         else:
             print("Invalid choice.")
+
 
 
